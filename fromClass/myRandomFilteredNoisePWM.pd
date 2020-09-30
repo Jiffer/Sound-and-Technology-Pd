@@ -1,38 +1,20 @@
-#N canvas 1602 -51 977 801 12;
-#X obj 150 293 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
+#N canvas 1602 -51 1227 788 12;
+#X obj 150 393 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 262 756 *~;
-#X obj 303 647 vsl 25 100 0 0.2 0 0 empty empty empty 0 -9 0 10 -262144
+#X obj 262 856 *~;
+#X obj 303 747 vsl 25 100 0 0.2 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 9900 1;
-#X obj 243 798 dac~;
-#X floatatom 90 427 5 0 0 0 - - -;
-#X obj 50 66 metro 200;
-#X obj 51 6 tgl 40 0 empty empty empty 17 7 0 10 -228856 -1 -1 1 1
-;
-#X obj 50 89 random 8;
-#X obj 50 112 select 0 1 2 3 4 5 6 7, f 38;
-#X msg 33 147 45;
-#X msg 68 147 48;
-#X msg 103 147 50;
-#X obj 75 207 mtof;
-#X msg 136 148 52;
-#X msg 171 148 55;
-#X msg 206 148 57;
-#X msg 241 148 60;
-#X msg 274 149 62;
-#X floatatom 147 45 5 0 0 0 - - -;
-#X text 361 34 Randomly trigger a note from an A minor pentatonic scale.
+#X obj 243 898 dac~;
+#X text 462 16 Randomly trigger a note from an A minor pentatonic scale.
 the synth patch includes noise~ and a pulse width modulation (PWM)
 sound. This all goes through a [bob~] "ladder filter" which is automatically
 swept from 5000Hz to 500Hz.;
-#X text 97 9 Play;
-#X text 188 45 Trigger rate (ms);
-#X obj 210 244 cnv 15 400 120 empty empty empty 20 12 0 14 -217024
+#X obj 210 344 cnv 15 400 120 empty empty empty 20 12 0 14 -217024
 -66577 0;
-#X floatatom 396 249 5 0 0 0 - - -;
-#X floatatom 395 271 5 0 0 0 - - -;
-#X text 440 249 attack time;
-#X floatatom 395 296 5 0 0 0 - - -;
+#X floatatom 396 349 5 0 0 0 - - -;
+#X floatatom 395 371 5 0 0 0 - - -;
+#X text 440 349 attack time;
+#X floatatom 395 396 5 0 0 0 - - -;
 #N canvas 0 23 706 475 AR-envelope-auto 0;
 #X obj 132 300 line~;
 #X msg 199 263 0 \$1;
@@ -75,20 +57,20 @@ swept from 5000Hz to 500Hz.;
 #X connect 18 0 19 0;
 #X connect 18 1 19 1;
 #X connect 19 0 13 1;
-#X restore 267 319 pd AR-envelope-auto;
-#X text 447 274 release time;
-#X text 447 299 release delay;
-#X text 556 342 Noise;
-#X obj 210 370 cnv 15 400 120 empty empty empty 20 12 0 14 -245753
+#X restore 267 419 pd AR-envelope-auto;
+#X text 447 374 release time;
+#X text 447 399 release delay;
+#X text 556 442 Noise;
+#X obj 210 470 cnv 15 400 120 empty empty empty 20 12 0 14 -245753
 -66577 0;
-#X floatatom 409 377 5 0 0 0 - - -;
-#X floatatom 408 398 5 0 0 0 - - -;
-#X text 453 377 attack time;
-#X floatatom 408 419 5 0 0 0 - - -;
-#X text 460 401 release time;
-#X text 460 422 release delay;
-#X text 579 469 PWM;
-#X text 315 373 Pulse Width;
+#X floatatom 409 477 5 0 0 0 - - -;
+#X floatatom 408 498 5 0 0 0 - - -;
+#X text 453 477 attack time;
+#X floatatom 408 519 5 0 0 0 - - -;
+#X text 460 501 release time;
+#X text 460 522 release delay;
+#X text 579 569 PWM;
+#X text 315 473 Pulse Width;
 #N canvas 0 23 706 475 AR-envelope-auto 0;
 #X obj 132 300 line~;
 #X msg 199 263 0 \$1;
@@ -131,8 +113,8 @@ swept from 5000Hz to 500Hz.;
 #X connect 18 0 19 0;
 #X connect 18 1 19 1;
 #X connect 19 0 13 1;
-#X restore 279 445 pd AR-envelope-auto;
-#X obj 262 468 *~;
+#X restore 279 545 pd AR-envelope-auto;
+#X obj 262 568 *~;
 #N canvas 0 23 704 611 pwm 0;
 #X obj 126 72 phasor~;
 #X obj 128 217 expr~ $v1 > $v2;
@@ -155,87 +137,145 @@ is divided by 100 here its expecting that the value is between 0:100
 #X connect 6 0 4 0;
 #X connect 7 0 8 0;
 #X connect 8 0 3 0;
-#X restore 216 443 pd pwm;
-#X floatatom 258 404 5 1 99 0 - - -;
-#X obj 261 371 hsl 50 25 1 99 0 0 empty empty empty -2 -8 0 10 -262144
+#X restore 216 543 pd pwm;
+#X floatatom 258 504 5 1 99 0 - - -;
+#X obj 261 471 hsl 50 25 1 99 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 2100 1;
-#X obj 245 255 noise~;
-#X obj 249 342 *~;
-#X obj 151 396 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 245 355 noise~;
+#X obj 249 442 *~;
+#X obj 150 518 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 152 487 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 150 587 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 711 317 random 100;
-#X obj 711 361 > 50;
-#X obj 711 385 sel 1;
-#X obj 210 498 cnv 15 400 120 empty empty empty 20 12 0 14 -261942
+#X obj 210 598 cnv 15 400 120 empty empty empty 20 12 0 14 -261942
 -66577 0;
-#X obj 262 594 bob~, f 13;
-#X obj 304 523 line~;
-#X floatatom 352 575 5 0 0 0 - - -;
-#X text 391 575 Q factor;
-#X msg 351 555 2;
-#X obj 351 535 loadbang;
-#X msg 304 501 5000 \, 100 100;
-#X obj 711 408 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 262 694 bob~, f 13;
+#X obj 304 623 line~;
+#X floatatom 352 675 5 0 0 0 - - -;
+#X text 391 675 Q factor;
+#X msg 351 655 2;
+#X obj 351 635 loadbang;
+#X msg 304 601 5000 \, 100 100;
+#X text 421 597 <- Filter sweep from 5000 to 100 in 100 ms;
+#X obj 648 344 cnv 15 400 200 empty empty empty 20 12 0 14 -261688
+-66577 0;
+#X obj 658 421 random 100;
+#X obj 658 464 > 50;
+#X obj 658 486 sel 1;
+#X obj 658 509 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 711 298 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 658 402 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X floatatom 713 337 5 0 0 0 - - -;
-#X text 421 497 <- Filter sweep from 5000 to 100 in 100 ms;
-#X connect 0 0 27 0;
-#X connect 0 0 47 0;
+#X floatatom 658 443 5 0 0 0 - - -;
+#X text 656 349 Another way to use random to randomize triggers;
+#X text 709 464 <- this outputs 1 if greater than 50;
+#X text 748 418 <- generate a random number less than 100;
+#X text 718 486 <- when output matches 1 send bang;
+#X text 681 399 <- click me;
+#X obj 47 13 cnv 15 400 300 empty empty empty 20 12 0 14 -174964 -66577
+0;
+#X obj 53 64 metro 200;
+#X obj 53 16 tgl 40 0 empty empty empty 17 7 0 10 -228856 -1 -1 1 1
+;
+#X obj 52 129 random 8;
+#X obj 51 184 select 0 1 2 3 4 5 6 7, f 40;
+#X msg 50 246 45;
+#X msg 85 246 48;
+#X msg 120 246 50;
+#X obj 150 284 mtof;
+#X msg 153 247 52;
+#X msg 188 247 55;
+#X msg 223 247 57;
+#X msg 258 247 60;
+#X msg 291 248 62;
+#X floatatom 116 44 5 0 0 0 - - -;
+#X text 108 18 Play;
+#X text 159 44 Trigger rate (ms);
+#X text 327 248 <- scale to use;
+#X floatatom 64 155 5 0 0 0 - - -;
+#X obj 58 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 92 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 125 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 162 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 196 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 233 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 265 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 299 208 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 105 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 126 102 Manual trigger;
+#X floatatom 216 520 5 0 0 0 - - -;
+#X connect 0 0 10 0;
+#X connect 0 0 30 0;
 #X connect 1 0 3 0;
 #X connect 1 0 3 1;
 #X connect 2 0 1 1;
-#X connect 4 0 42 0;
-#X connect 5 0 7 0;
-#X connect 6 0 5 0;
-#X connect 7 0 8 0;
-#X connect 8 0 9 0;
-#X connect 8 1 10 0;
-#X connect 8 2 11 0;
-#X connect 8 3 13 0;
-#X connect 8 4 14 0;
-#X connect 8 5 15 0;
-#X connect 8 6 16 0;
-#X connect 8 7 17 0;
-#X connect 9 0 12 0;
-#X connect 10 0 12 0;
-#X connect 11 0 12 0;
-#X connect 12 0 4 0;
-#X connect 12 0 0 0;
-#X connect 13 0 12 0;
-#X connect 14 0 12 0;
-#X connect 15 0 12 0;
-#X connect 16 0 12 0;
-#X connect 17 0 12 0;
-#X connect 18 0 5 1;
-#X connect 23 0 27 1;
-#X connect 24 0 27 2;
-#X connect 26 0 27 3;
-#X connect 27 0 46 1;
-#X connect 32 0 40 1;
-#X connect 33 0 40 2;
-#X connect 35 0 40 3;
-#X connect 40 0 41 1;
-#X connect 41 0 53 0;
-#X connect 42 0 41 0;
-#X connect 43 0 42 1;
-#X connect 44 0 43 0;
-#X connect 45 0 46 0;
-#X connect 46 0 53 0;
-#X connect 47 0 40 0;
-#X connect 47 0 48 0;
-#X connect 48 0 59 0;
-#X connect 49 0 62 0;
-#X connect 50 0 51 0;
-#X connect 51 0 60 0;
-#X connect 53 0 1 0;
-#X connect 54 0 53 1;
-#X connect 55 0 53 2;
-#X connect 57 0 55 0;
-#X connect 58 0 57 0;
-#X connect 59 0 54 0;
-#X connect 61 0 49 0;
-#X connect 62 0 50 0;
+#X connect 6 0 10 1;
+#X connect 7 0 10 2;
+#X connect 9 0 10 3;
+#X connect 10 0 29 1;
+#X connect 15 0 23 1;
+#X connect 16 0 23 2;
+#X connect 18 0 23 3;
+#X connect 23 0 24 1;
+#X connect 24 0 33 0;
+#X connect 25 0 24 0;
+#X connect 26 0 25 1;
+#X connect 27 0 26 0;
+#X connect 28 0 29 0;
+#X connect 29 0 33 0;
+#X connect 30 0 23 0;
+#X connect 30 0 31 0;
+#X connect 31 0 39 0;
+#X connect 33 0 1 0;
+#X connect 34 0 33 1;
+#X connect 35 0 33 2;
+#X connect 37 0 35 0;
+#X connect 38 0 37 0;
+#X connect 39 0 34 0;
+#X connect 42 0 47 0;
+#X connect 43 0 44 0;
+#X connect 44 0 45 0;
+#X connect 46 0 42 0;
+#X connect 47 0 43 0;
+#X connect 54 0 56 0;
+#X connect 55 0 54 0;
+#X connect 56 0 57 0;
+#X connect 56 0 71 0;
+#X connect 57 0 58 0;
+#X connect 57 0 72 0;
+#X connect 57 1 59 0;
+#X connect 57 1 73 0;
+#X connect 57 2 60 0;
+#X connect 57 2 74 0;
+#X connect 57 3 62 0;
+#X connect 57 3 75 0;
+#X connect 57 4 63 0;
+#X connect 57 4 76 0;
+#X connect 57 5 64 0;
+#X connect 57 5 77 0;
+#X connect 57 6 65 0;
+#X connect 57 6 78 0;
+#X connect 57 7 66 0;
+#X connect 57 7 79 0;
+#X connect 58 0 61 0;
+#X connect 59 0 61 0;
+#X connect 60 0 61 0;
+#X connect 61 0 0 0;
+#X connect 61 0 82 0;
+#X connect 62 0 61 0;
+#X connect 63 0 61 0;
+#X connect 64 0 61 0;
+#X connect 65 0 61 0;
+#X connect 66 0 61 0;
+#X connect 67 0 54 1;
+#X connect 80 0 56 0;
+#X connect 82 0 25 0;
