@@ -1,0 +1,29 @@
+#N canvas 1771 119 771 617 12;
+#X obj 201 492 dac~;
+#X obj 160 143 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 207 268 readsf~ 2;
+#X msg 112 228 0;
+#X obj 159 195 t b b;
+#X msg 160 229 1;
+#X text 281 268 <- connect to trigger to loop;
+#X obj 269 337 vsl 25 75 0 0.2 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 5400 1;
+#X obj 206 431 *~;
+#X obj 112 186 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 79 185 Stop;
+#X msg 207 237 open ./audio/cowbell.wav;
+#X text 184 139 <- start loop;
+#X connect 1 0 4 0;
+#X connect 2 0 8 0;
+#X connect 2 2 1 0;
+#X connect 3 0 2 0;
+#X connect 4 0 5 0;
+#X connect 4 1 11 0;
+#X connect 5 0 2 0;
+#X connect 7 0 8 1;
+#X connect 8 0 0 0;
+#X connect 8 0 0 1;
+#X connect 9 0 3 0;
+#X connect 11 0 2 0;

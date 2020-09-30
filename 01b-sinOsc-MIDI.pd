@@ -1,0 +1,28 @@
+#N canvas 520 191 682 608 12;
+#X obj 140 423 dac~;
+#X floatatom 136 143 10 0 0 0 - - -;
+#X obj 138 351 *~;
+#X obj 193 208 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 136 180 osc~;
+#X obj 193 237 sel 1 0;
+#X text 223 205 on/off;
+#X text 219 144 frequency;
+#X obj 135 116 mtof;
+#X floatatom 136 90 5 0 0 0 - - -;
+#X text 188 88 MIDI note number (60 = middle C);
+#X msg 191 269 0.1;
+#X msg 227 290 0;
+#X text 154 11 MIDI to frequency [mtof] converts a value between 0-127
+into a corresponding frequency;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 5 0;
+#X connect 4 0 2 0;
+#X connect 5 0 11 0;
+#X connect 5 1 12 0;
+#X connect 8 0 1 0;
+#X connect 9 0 8 0;
+#X connect 11 0 2 1;
+#X connect 12 0 2 1;

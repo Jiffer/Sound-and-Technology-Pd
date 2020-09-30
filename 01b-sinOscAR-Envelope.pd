@@ -1,0 +1,43 @@
+#N canvas 388 143 641 608 12;
+#X obj 127 525 dac~;
+#X floatatom 123 198 5 0 0 0 - - -;
+#X obj 125 453 *~;
+#X obj 182 253 tgl 25 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 123 231 osc~;
+#X obj 178 415 line~;
+#X floatatom 286 300 5 0 0 0 - - -;
+#X obj 180 312 sel 1 0;
+#X msg 239 387 0 \$1;
+#X floatatom 286 338 5 0 0 0 - - -;
+#X text 344 301 attack time;
+#X obj 177 347 f;
+#X obj 239 363 f;
+#X text 212 260 on/off;
+#X text 172 198 frequency;
+#X obj 122 171 mtof;
+#X floatatom 123 145 5 0 0 0 - - -;
+#X text 175 143 MIDI note number (60 = middle C);
+#X msg 178 371 0.1 \$1;
+#X text 338 341 release time;
+#X text 143 22 Here [line~] is used to create a simple Attack Release
+(AR) envelope. The messages tell it to ramp to a value in the specified
+time (in milliseconds). In the messages sent to [line~]: the first
+number is the target value - second number is the time to get there
+;
+#X connect 1 0 4 0;
+#X connect 2 0 0 0;
+#X connect 2 0 0 1;
+#X connect 3 0 7 0;
+#X connect 4 0 2 0;
+#X connect 5 0 2 1;
+#X connect 6 0 11 1;
+#X connect 7 0 11 0;
+#X connect 7 1 12 0;
+#X connect 8 0 5 0;
+#X connect 9 0 12 1;
+#X connect 11 0 18 0;
+#X connect 12 0 8 0;
+#X connect 15 0 1 0;
+#X connect 16 0 15 0;
+#X connect 18 0 5 0;

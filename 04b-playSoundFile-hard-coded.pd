@@ -1,0 +1,14 @@
+#N canvas 2346 236 694 308 12;
+#X obj 129 154 readsf~;
+#X obj 129 205 dac~;
+#X msg 143 98 1;
+#X msg 129 66 open ./audio/fishy.wav;
+#X msg 146 123 0;
+#X text 189 95 <- message to play;
+#X text 189 123 <- message to stop;
+#X text 300 66 <- specify file relative to current location.;
+#X connect 0 0 1 0;
+#X connect 0 0 1 1;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 0 0;

@@ -1,0 +1,33 @@
+#N canvas 540 92 900 699 12;
+#X obj 123 133 osc~ 300;
+#X obj 126 81 hsl 128 15 0 100 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 7600 1;
+#X obj 123 101 mtof;
+#X floatatom 82 133 5 0 0 0 - - -;
+#X obj 123 365 *~;
+#X obj 297 239 osc~ 5;
+#X obj 125 589 dac~;
+#X floatatom 298 216 5 0 0 0 - - -;
+#X obj 124 545 *~;
+#X obj 301 194 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 263 401 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 263 514 5 0 0 0 - - -;
+#X text 124 59 select midi note;
+#X text 292 490 Volume;
+#X text 297 173 LFO Rate;
+#X text 284 312 Multiplying a signal by an LFO gives us a simple amplitude
+modulation (volume goes up and down with the LFO);
+#X connect 0 0 4 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 0;
+#X connect 2 0 3 0;
+#X connect 4 0 8 0;
+#X connect 5 0 4 1;
+#X connect 7 0 5 0;
+#X connect 8 0 6 0;
+#X connect 8 0 6 1;
+#X connect 9 0 7 0;
+#X connect 10 0 8 1;
+#X connect 10 0 11 0;

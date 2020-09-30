@@ -1,0 +1,312 @@
+#N canvas 274 58 1142 820 12;
+#X obj 332 777 dac~;
+#X floatatom 136 138 5 0 0 0 - - -;
+#X obj 333 615 *~;
+#X obj 615 471 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 613 509 5 0 0 0 - - -;
+#X floatatom 613 547 5 0 0 0 - - -;
+#X text 657 509 attack time;
+#X text 667 470 on/off;
+#X text 68 139 frequency;
+#X obj 131 29 hsl 128 15 36 84 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 135 111 mtof;
+#X floatatom 136 85 5 0 0 0 - - -;
+#X obj 136 60 i;
+#X text 188 83 MIDI note number (60 = middle C);
+#N canvas 0 23 450 300 scope 0;
+#X obj 172 125 metro 200;
+#X obj 173 100 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 171 151 tabwrite~ \$0-array1;
+#X obj 168 71 loadbang;
+#X obj 71 72 inlet~;
+#X connect 0 0 2 0;
+#X connect 1 0 0 0;
+#X connect 3 0 1 0;
+#X connect 4 0 2 0;
+#X restore 83 625 pd scope;
+#N canvas 0 23 638 546 triangle 0;
+#X obj 138 235 phasor~;
+#X obj 138 281 -~ 1;
+#X obj 203 234 phasor~;
+#X obj 203 280 -~ 1;
+#X msg 256 198 0;
+#X floatatom 136 173 5 0 0 0 - - -;
+#X obj 201 208 * -1;
+#X obj 138 311 clip~ 0 1;
+#X obj 203 341 clip~ 0 1;
+#X obj 166 362 +~;
+#X obj 138 258 *~ 2;
+#X obj 203 257 *~ 2;
+#X obj 165 384 *~ 2;
+#X obj 165 407 -~ 1;
+#X obj 252 158 loadbang;
+#X obj 132 110 inlet;
+#X obj 168 456 outlet~;
+#X text 304 300 This approach uses two phasors one counts up and the
+other counts down Each is clipped half of the time;
+#X connect 0 0 10 0;
+#X connect 1 0 7 0;
+#X connect 2 0 11 0;
+#X connect 3 0 8 0;
+#X connect 4 0 2 1;
+#X connect 4 0 0 1;
+#X connect 5 0 6 0;
+#X connect 5 0 0 0;
+#X connect 6 0 2 0;
+#X connect 7 0 9 0;
+#X connect 8 0 9 1;
+#X connect 9 0 12 0;
+#X connect 10 0 1 0;
+#X connect 11 0 3 0;
+#X connect 12 0 13 0;
+#X connect 13 0 16 0;
+#X connect 14 0 4 0;
+#X connect 15 0 5 0;
+#X restore 211 245 pd triangle;
+#X obj 144 306 *~;
+#X obj 162 282 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 144 247 osc~;
+#X obj 211 314 *~;
+#X obj 229 285 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 0 23 790 543 square 0;
+#X obj 128 98 phasor~;
+#X obj 131 55 inlet~;
+#X obj 128 298 outlet~;
+#X obj 128 160 expr~ $v1 > 0.5;
+#X obj 128 226 *~ 2;
+#X obj 128 258 -~ 1;
+#X text 262 165 It is above 0.5 half the time and below hte other half.
+This will alterrnate between 1 and 0 (true and false);
+#X text 262 239 Change the square wave from going from 0 to 1 to going
+from -1 to 1;
+#X text 254 108 Phasor counts from 0 to 1 at the specified frequency
+;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 2 0;
+#X restore 313 245 pd square;
+#N canvas 0 23 704 611 pwm 0;
+#X obj 126 72 phasor~;
+#X obj 128 217 expr~ $v1 > $v2;
+#X obj 129 29 inlet~;
+#X obj 130 335 outlet~;
+#X floatatom 241 128 5 0 100 0 - - -;
+#X obj 241 150 / 100;
+#X obj 236 61 inlet;
+#X obj 128 240 *~ 2;
+#X obj 128 263 -~ 1;
+#X text 288 220 Like the squre wave only you can control the value
+it compares to. remember phasor counts from 0 to 1 - since the input
+is divided by 100 here its expecting that the value is between 0:100
+;
+#X connect 0 0 1 0;
+#X connect 1 0 7 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 5 0 1 1;
+#X connect 6 0 4 0;
+#X connect 7 0 8 0;
+#X connect 8 0 3 0;
+#X restore 402 248 pd pwm;
+#X obj 313 310 *~;
+#X obj 331 280 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 403 308 *~;
+#X obj 421 278 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 489 254 phasor~;
+#X obj 489 344 *~;
+#X obj 525 324 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X floatatom 440 207 5 1 99 0 - - -;
+#X obj 489 277 *~ 2;
+#X obj 489 300 -~ 1;
+#X obj 333 719 *~;
+#X obj 391 649 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262130
+-1 -1 0 1;
+#X obj 28 278 adc~;
+#X obj 54 309 *~;
+#X obj 72 285 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 618 250 noise~;
+#X obj 610 322 *~;
+#X obj 646 302 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array \$0-array1 1000 float 5;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#X coords 0 2 999 -2 200 140 1 0 0;
+#X restore 83 662 graph;
+#X text 387 755 Volume;
+#X text 277 27 select a note;
+#X text 363 183 Pulse width 1-99;
+#X text 190 59 < only allow integer values;
+#X text 187 109 convert MIDI value to frequency;
+#N canvas 0 23 524 475 AD-envelope 0;
+#X obj 128 222 line~;
+#X obj 131 93 sel 1 0;
+#X msg 128 178 1 \$1;
+#X msg 215 193 0 \$1;
+#X obj 129 148 f;
+#X obj 220 166 f;
+#X obj 131 51 inlet;
+#X obj 128 294 outlet~;
+#X obj 206 17 inlet;
+#X obj 278 69 inlet;
+#X text 23 53 toggle on/off;
+#X text 250 17 attack time;
+#X text 324 68 decay time;
+#X obj 331 100 loadbang;
+#X msg 337 153 100;
+#X msg 299 128 10;
+#X text 376 135 initial values;
+#X connect 0 0 7 0;
+#X connect 1 0 4 0;
+#X connect 1 1 5 0;
+#X connect 2 0 0 0;
+#X connect 3 0 0 0;
+#X connect 4 0 2 0;
+#X connect 5 0 3 0;
+#X connect 6 0 1 0;
+#X connect 8 0 4 1;
+#X connect 9 0 5 1;
+#X connect 13 0 14 0;
+#X connect 13 0 15 0;
+#X connect 14 0 5 1;
+#X connect 15 0 4 1;
+#X restore 490 574 pd AD-envelope;
+#X floatatom 972 486 5 0 0 0 - - -;
+#X floatatom 971 513 5 0 0 0 - - -;
+#X text 1016 486 attack time;
+#X floatatom 971 538 5 0 0 0 - - -;
+#X obj 822 499 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 857 502 trigger;
+#N canvas 0 23 706 475 AR-envelope-auto 1;
+#X obj 132 300 line~;
+#X msg 199 263 0 \$1;
+#X obj 133 226 f;
+#X obj 204 236 f;
+#X obj 128 35 inlet;
+#X obj 132 372 outlet~;
+#X obj 206 31 inlet;
+#X obj 344 20 inlet;
+#X text 206 12 attack time;
+#X obj 331 114 loadbang;
+#X msg 337 167 100;
+#X msg 299 142 10;
+#X text 376 149 initial values;
+#X obj 201 122 delay 100;
+#X text 115 13 trigger;
+#X obj 475 36 inlet;
+#X text 474 14 on/sustain time;
+#X msg 132 256 0.1 \$1;
+#X obj 290 49 t b f;
+#X obj 259 91 +;
+#X text 343 -1 release time;
+#X connect 0 0 5 0;
+#X connect 1 0 0 0;
+#X connect 2 0 17 0;
+#X connect 3 0 1 0;
+#X connect 4 0 13 0;
+#X connect 4 0 2 0;
+#X connect 6 0 2 1;
+#X connect 6 0 19 0;
+#X connect 7 0 3 1;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 10 0 3 1;
+#X connect 11 0 2 1;
+#X connect 11 0 19 0;
+#X connect 13 0 3 0;
+#X connect 15 0 18 0;
+#X connect 17 0 0 0;
+#X connect 18 0 19 0;
+#X connect 18 1 19 1;
+#X connect 19 0 13 1;
+#X restore 821 574 pd AR-envelope-auto;
+#X text 1023 516 release time;
+#X text 1023 541 release delay;
+#X text 665 550 release time;
+#X connect 1 0 15 0;
+#X connect 1 0 18 0;
+#X connect 1 0 21 0;
+#X connect 1 0 22 0;
+#X connect 1 0 27 0;
+#X connect 2 0 33 0;
+#X connect 2 0 14 0;
+#X connect 3 0 47 0;
+#X connect 4 0 47 1;
+#X connect 5 0 47 2;
+#X connect 9 0 12 0;
+#X connect 10 0 1 0;
+#X connect 11 0 10 0;
+#X connect 12 0 11 0;
+#X connect 15 0 19 0;
+#X connect 16 0 2 0;
+#X connect 17 0 16 1;
+#X connect 18 0 16 0;
+#X connect 19 0 2 0;
+#X connect 20 0 19 1;
+#X connect 21 0 23 0;
+#X connect 22 0 25 0;
+#X connect 23 0 2 0;
+#X connect 24 0 23 1;
+#X connect 25 0 2 0;
+#X connect 26 0 25 1;
+#X connect 27 0 31 0;
+#X connect 28 0 2 0;
+#X connect 29 0 28 1;
+#X connect 30 0 22 1;
+#X connect 31 0 32 0;
+#X connect 32 0 28 0;
+#X connect 33 0 0 0;
+#X connect 33 0 0 1;
+#X connect 34 0 33 1;
+#X connect 35 0 36 0;
+#X connect 36 0 2 0;
+#X connect 37 0 36 1;
+#X connect 38 0 39 0;
+#X connect 39 0 2 0;
+#X connect 40 0 39 1;
+#X connect 47 0 2 1;
+#X connect 48 0 54 1;
+#X connect 49 0 54 2;
+#X connect 51 0 54 3;
+#X connect 52 0 54 0;
