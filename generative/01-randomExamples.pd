@@ -1,0 +1,91 @@
+#N canvas 1658 36 1273 587 12;
+#X obj 157 152 random 3000;
+#X text 95 98 random number between 0-2999;
+#X obj 157 128 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 157 175 5 0 0 0 - - -;
+#X obj 390 153 random 8;
+#X obj 391 202 select 0 1 2 3 4 5 6 7, f 35;
+#X floatatom 405 177 5 0 0 0 - - -;
+#X obj 390 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 391 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 421 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 451 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 481 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 512 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 542 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 572 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 602 230 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 391 249 45;
+#X msg 421 280 48;
+#X msg 451 249 50;
+#X msg 481 280 52;
+#X msg 512 249 55;
+#X msg 542 280 57;
+#X msg 572 248 60;
+#X msg 602 280 62;
+#X text 387 95 trigger specific value on random input;
+#X floatatom 466 351 5 0 0 0 - - -;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array scale 7 float 3;
+#A 0 2 3 5 7 8 10 12;
+#X coords 0 24 7 0 200 140 1 0 0;
+#X restore 788 110 graph;
+#X floatatom 1022 289 5 0 0 0 - - -;
+#X floatatom 1022 344 5 0 0 0 - - -;
+#X obj 1022 229 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 1022 378 + 60;
+#X msg 1004 144 \; scale 0 2 3 5 7 8 10 12;
+#X obj 1022 319 tabread scale;
+#X obj 1022 262 random 8;
+#X msg 1004 108 \; scale 0 2 4 5 7 9 11 12;
+#X text 1196 113 major scale;
+#X text 1194 156 minor scale;
+#X text 782 66 select from a scale defined by intervals;
+#X floatatom 1022 420 5 0 0 0 - - -;
+#X text 1065 377 < set root note offset aka Transpose;
+#X connect 0 0 3 0;
+#X connect 2 0 0 0;
+#X connect 4 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 8 0;
+#X connect 5 1 9 0;
+#X connect 5 2 10 0;
+#X connect 5 3 11 0;
+#X connect 5 4 12 0;
+#X connect 5 5 13 0;
+#X connect 5 6 14 0;
+#X connect 5 7 15 0;
+#X connect 7 0 4 0;
+#X connect 8 0 16 0;
+#X connect 9 0 17 0;
+#X connect 10 0 18 0;
+#X connect 11 0 19 0;
+#X connect 12 0 20 0;
+#X connect 13 0 21 0;
+#X connect 14 0 22 0;
+#X connect 15 0 23 0;
+#X connect 16 0 25 0;
+#X connect 17 0 25 0;
+#X connect 18 0 25 0;
+#X connect 19 0 25 0;
+#X connect 20 0 25 0;
+#X connect 21 0 25 0;
+#X connect 22 0 25 0;
+#X connect 23 0 25 0;
+#X connect 27 0 32 0;
+#X connect 28 0 30 0;
+#X connect 29 0 33 0;
+#X connect 30 0 38 0;
+#X connect 32 0 28 0;
+#X connect 33 0 27 0;
