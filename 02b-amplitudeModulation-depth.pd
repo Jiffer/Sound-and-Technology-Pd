@@ -10,7 +10,7 @@
 #X floatatom 298 216 5 0 0 0 - - -;
 #X obj 128 660 *~;
 #X obj 301 194 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 900 1;
+-1 -1 0 1;
 #X obj 267 516 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X floatatom 267 629 5 0 0 0 - - -;
@@ -23,21 +23,22 @@ modulation (volume goes up and down with the LFO);
 #X obj 297 289 +~ 0.5;
 #X floatatom 373 405 5 0 0 0 - - -;
 #X obj 376 373 hsl 100 25 0 1 0 0 empty empty empty -2 -8 0 10 -204786
--1 -1 9900 1;
+-1 -1 0 1;
 #X floatatom 377 348 5 0 0 0 - - -;
 #X obj 380 316 hsl 100 25 0 1 0 0 empty empty empty -2 -8 0 10 -204786
 -1 -1 0 1;
 #X obj 297 365 *~;
 #X obj 296 425 +~;
 #X obj 385 494 snapshot~;
-#X obj 384 450 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 384 450 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 384 470 metro 20;
 #X obj 388 517 hsl 100 25 0 2 0 0 empty empty empty -2 -8 0 10 -228856
--1 -1 4950 1;
-#X text 374 264 Some math to shift the range of the LFO;
+-1 -1 0 1;
 #X text 412 403 offset;
 #X text 424 346 Range / depth;
+#X text 371 270 Some math to shift the range of the LFO to 0 - 1 making
+it easier to set a new offset and depth.;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 2 0 0 0;

@@ -1,8 +1,8 @@
-#N canvas 1527 -35 1251 783 12;
+#N canvas 1520 89 1251 783 12;
 #X obj 578 740 dac~;
 #X floatatom 364 165 5 0 0 0 - - -;
 #X obj 579 659 *~;
-#X obj 975 400 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 975 400 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 864 561 line~;
 #X floatatom 972 446 5 0 0 0 - - -;
@@ -16,7 +16,7 @@
 #X text 1005 397 on/off;
 #X text 296 166 frequency;
 #X obj 368 61 hsl 128 15 36 84 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2300 1;
+-1 -1 0 1;
 #X obj 363 138 mtof;
 #X floatatom 364 112 5 0 0 0 - - -;
 #X obj 364 87 i;
@@ -26,15 +26,15 @@
 #X obj 365 246 -~ 1;
 #X obj 579 682 *~;
 #X obj 660 550 vsl 15 128 0 0.2 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 12700 1;
-#X floatatom 764 282 10 0 0 0 - - -;
-#X obj 767 260 hsl 128 15 0 10000 0 0 empty empty empty -2 -8 0 10
--262144 -1 -1 6699 1;
+-1 -1 0 1;
+#X floatatom 824 296 10 0 0 0 - - -;
+#X obj 827 274 hsl 128 15 0 10000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
 #X obj 552 425 bob~;
 #X floatatom 656 405 5 0 0 0 - - -;
 #X obj 659 383 hsl 128 15 0 8 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3900 1;
-#X text 899 257 Filter Cutoff;
+-1 -1 0 1;
+#X text 959 271 Filter Cutoff;
 #X text 655 361 Filter Q;
 #X obj 759 58 osc~;
 #X obj 759 81 *~ 0.5;
@@ -42,31 +42,31 @@
 #X obj 759 153 *~;
 #X obj 759 191 +~;
 #X obj 824 134 hsl 128 15 0 5000 0 0 empty empty empty -2 -8 0 10 -262130
--1 -1 12700 1;
+-1 -1 0 1;
 #X obj 823 177 hsl 128 15 0 5000 0 0 empty empty empty -2 -8 0 10 -262130
--1 -1 700 1;
-#X floatatom 832 38 5 0 0 0 - - -;
-#X obj 837 11 hsl 128 15 0 15 0 0 empty empty empty -2 -8 0 10 -262130
--1 -1 500 1;
+-1 -1 0 1;
+#X floatatom 761 33 5 0 0 0 - - -;
+#X obj 766 6 hsl 128 15 0 15 0 0 empty empty empty -2 -8 0 10 -262130
+-1 -1 0 1;
 #X text 963 131 Range;
 #X text 965 177 Offset;
 #X floatatom 821 154 5 0 0 0 - - -;
 #X floatatom 820 197 5 0 0 0 - - -;
-#N canvas 0 23 450 300 signalScope 0;
+#N canvas 0 25 450 300 signalScope 0;
 #X obj 125 75 loadbang;
 #X obj 125 98 metro 20;
 #X obj 125 121 snapshot~;
 #X obj 125 144 outlet;
 #X obj 62 2 inlet~;
-#X obj 139 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 139 52 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
 #X connect 4 0 2 0;
 #X connect 5 0 1 0;
-#X restore 764 238 pd signalScope;
-#X text 880 38 LFO Rate;
+#X restore 824 252 pd signalScope;
+#X text 809 33 LFO Rate;
 #X text 816 90 <- make osc output go between 0:1;
 #X msg 864 517 0.1 \$1;
 #X connect 1 0 20 0;

@@ -1,4 +1,4 @@
-#N canvas 492 103 742 797 12;
+#N canvas 492 75 742 797 12;
 #X obj 102 700 dac~;
 #X floatatom 98 420 5 0 0 0 - - -;
 #X obj 100 628 *~;
@@ -16,7 +16,7 @@
 #X text 228 421 on/off;
 #X text 30 421 frequency;
 #X obj 101 250 hsl 128 15 36 84 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 2381 1;
+-1 -1 4233 1;
 #X obj 97 393 mtof;
 #X floatatom 98 367 5 0 0 0 - - -;
 #X obj 98 342 i;
@@ -31,20 +31,20 @@
 #X msg 276 182 57;
 #X msg 317 183 60;
 #X msg 362 183 62;
-#X text 159 60 Turn keystrokes 'asdf jkl \; ' into note numbers;
+#X text 140 31 Turn keystrokes 'asdf jkl \; ' into note numbers;
 #X text 149 97 output ASCII key value;
 #X text 358 145 send bang on specific keys;
 #X text 409 183 < these numbers represent the notes to play it defines
 the scale;
 #X msg 153 546 0.2 \$1;
-#X obj 208 360 delay 20;
 #X msg 190 336 1;
 #X msg 208 385 0;
 #X obj 195 295 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 98 465 phasor~;
 #X floatatom 261 334 5 0 0 0 - - -;
-#X connect 1 0 39 0;
+#X obj 208 360 delay 50;
+#X connect 1 0 38 0;
 #X connect 2 0 0 0;
 #X connect 2 0 0 1;
 #X connect 3 0 6 0;
@@ -57,7 +57,7 @@ the scale;
 #X connect 11 0 34 0;
 #X connect 12 0 7 0;
 #X connect 15 0 18 0;
-#X connect 15 0 38 0;
+#X connect 15 0 37 0;
 #X connect 16 0 1 0;
 #X connect 17 0 16 0;
 #X connect 18 0 17 0;
@@ -80,10 +80,10 @@ the scale;
 #X connect 28 0 15 0;
 #X connect 29 0 15 0;
 #X connect 34 0 4 0;
-#X connect 35 0 37 0;
+#X connect 35 0 3 0;
 #X connect 36 0 3 0;
-#X connect 37 0 3 0;
-#X connect 38 0 36 0;
-#X connect 38 0 35 0;
-#X connect 39 0 2 0;
-#X connect 40 0 35 1;
+#X connect 37 0 35 0;
+#X connect 37 0 40 0;
+#X connect 38 0 2 0;
+#X connect 39 0 40 1;
+#X connect 40 0 36 0;

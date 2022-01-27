@@ -1,27 +1,34 @@
 #N canvas 734 217 557 641 12;
-#X obj 122 329 osc~ 300;
-#X obj 125 31 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 6300 1;
-#X obj 122 51 mtof;
-#X floatatom 129 75 5 0 0 0 - - -;
-#X obj 123 502 dac~;
-#X obj 122 458 *~;
-#X obj 211 188 osc~;
-#X floatatom 211 167 5 0 0 0 - - -;
-#X obj 214 145 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 119 439 osc~ 300;
+#X obj 122 141 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 121 286 +~;
-#X obj 211 244 *~;
-#X obj 266 209 hsl 128 15 0 20 0 0 empty empty empty -2 -8 0 10 -262144
+#X obj 119 161 mtof;
+#X floatatom 126 185 5 0 0 0 - - -;
+#X obj 120 612 dac~;
+#X obj 119 568 *~;
+#X obj 208 298 osc~;
+#X floatatom 208 277 5 0 0 0 - - -;
+#X obj 211 255 hsl 128 15 0 10 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 169 387 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 9000 1;
-#X text 170 76 Carrier frequency;
-#X floatatom 264 238 5 0 0 0 - - -;
-#X text 253 166 Modulation Frequency;
-#X floatatom 169 502 5 0 0 0 - - -;
-#X text 199 473 Volume;
-#X text 306 240 Modulation Depth;
+#X obj 118 396 +~;
+#X obj 208 354 *~;
+#X obj 263 319 hsl 128 15 0 20 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 166 497 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X text 167 186 Carrier frequency;
+#X floatatom 261 348 5 0 0 0 - - -;
+#X text 250 276 Modulation Frequency;
+#X floatatom 166 612 5 0 0 0 - - -;
+#X text 196 583 Volume;
+#X text 303 350 Modulation Depth;
+#X text 114 42 FM or Frequency Modulation Synthesis demo.;
+#X text 207 231 Here the Modulation frequency is limited to "LFO" range
+;
+#X text 113 64 The frequency of one oscillator is controlled by another
+oscillator. If the controlling oscillator increases into the audio
+range (above 20Hz or so) the effect changes from that of vibrato (LFO
+range) to timbral.;
 #X connect 0 0 5 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;

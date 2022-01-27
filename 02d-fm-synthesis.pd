@@ -1,19 +1,19 @@
-#N canvas 521 88 865 722 12;
-#X obj 131 116 hsl 100 25 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3700 1;
-#X obj 128 149 mtof;
-#X floatatom 128 174 5 0 0 0 - - -;
-#X obj 212 456 dac~;
-#X obj 211 412 *~;
-#X obj 258 304 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1100 1;
-#X floatatom 454 147 5 0 0 0 - - -;
-#X text 498 149 Modulation Index;
-#X floatatom 258 419 5 0 0 0 - - -;
-#X text 288 390 Volume;
-#X floatatom 282 150 5 0 0 0 - - -;
-#X text 326 152 FM ratio;
-#N canvas 0 23 713 715 fm-synth 1;
+#N canvas 1874 181 865 722 12;
+#X obj 156 247 hsl 100 25 0 127 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X obj 153 280 mtof;
+#X floatatom 153 305 5 0 0 0 - - -;
+#X obj 237 587 dac~;
+#X obj 236 543 *~;
+#X obj 283 435 vsl 25 100 0 0.1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 479 278 5 0 0 0 - - -;
+#X text 523 280 Modulation Index;
+#X floatatom 283 550 5 0 0 0 - - -;
+#X text 313 521 Volume;
+#X floatatom 307 281 5 0 0 0 - - -;
+#X text 351 283 FM ratio;
+#N canvas 0 25 713 715 fm-synth 1;
 #X obj 121 360 osc~ 300;
 #X floatatom 127 106 5 0 0 0 - - -;
 #X obj 211 232 osc~;
@@ -54,17 +54,22 @@ the amplitude of the modulation frequency;
 #X connect 12 0 1 0;
 #X connect 13 0 10 0;
 #X connect 14 0 11 0;
-#X restore 211 259 pd fm-synth;
-#X text 169 176 Frequency;
-#X obj 457 117 hsl 100 25 0 25 0 0 empty empty empty -2 -8 0 10 -262144
+#X restore 236 390 pd fm-synth;
+#X text 194 307 Frequency;
+#X obj 482 248 hsl 100 25 0 25 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
-#X obj 285 118 hsl 100 25 0 10 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 990 1;
-#X msg 278 45 1;
-#X msg 310 94 1.9;
-#X msg 289 71 2;
-#X text 340 93 non-integer sound detuned;
-#X text 324 55 Integer ratios;
+#X obj 310 249 hsl 100 25 0 10 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X msg 303 176 1;
+#X msg 335 225 1.9;
+#X msg 314 202 2;
+#X text 365 224 non-integer sound detuned;
+#X text 349 186 Integer ratios;
+#X text 135 46 FM or Frequency Modulation Synthesis demo.;
+#X text 133 68 The frequency of one oscillator is controlled by another
+oscillator. If the controlling oscillator increases into the audio
+range (above timbral. or so) the effect changes from that of vibrato
+to timbral.;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 12 0;

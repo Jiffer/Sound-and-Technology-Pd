@@ -6,8 +6,8 @@
 #X obj 187 488 line~;
 #X floatatom 417 259 5 0 0 0 - - -;
 #X msg 243 461 0 \$1;
-#X floatatom 417 297 5 0 0 0 - - -;
-#X text 461 259 attack time;
+#X floatatom 411 367 5 0 0 0 - - -;
+#X text 466 260 attack time;
 #X obj 186 328 f;
 #X obj 243 437 f;
 #X text 184 190 frequency;
@@ -18,23 +18,26 @@
 #X obj 189 259 bng 25 250 50 0 empty empty empty 17 7 0 10 -261682
 -1 -1;
 #X obj 243 407 delay 100;
-#X floatatom 416 332 5 0 0 0 - - -;
-#X text 467 332 sustain time;
+#X floatatom 411 312 5 0 0 0 - - -;
+#X text 462 312 sustain time;
 #X msg 187 352 0.1 \$1;
 #X text 285 461 < go to 0 in \$1 ms;
-#X text 209 19 Here [line~] is used to create an automatic AD envelope
-\, the decay immediately follows the attack and sustain time.;
-#X obj 304 333 t b f;
-#X obj 303 360 +;
+#X obj 312 336 t b f;
+#X obj 303 375 +;
 #X text 318 406 <- delay decay;
-#X text 468 297 release time;
+#X text 462 367 release time;
+#X msg 416 199 5;
+#X msg 422 225 100;
+#X text 113 25 Here [line~] is used to create an automatic AD envelope
+\, the decay immediately follows the attack and sustain time (all in
+ms).;
 #X connect 1 0 3 0;
 #X connect 2 0 0 0;
 #X connect 2 0 0 1;
 #X connect 3 0 2 0;
 #X connect 4 0 2 1;
 #X connect 5 0 9 1;
-#X connect 5 0 24 0;
+#X connect 5 0 23 0;
 #X connect 6 0 4 0;
 #X connect 7 0 10 1;
 #X connect 9 0 20 0;
@@ -44,7 +47,10 @@
 #X connect 16 0 9 0;
 #X connect 16 0 17 0;
 #X connect 17 0 10 0;
-#X connect 18 0 23 0;
+#X connect 18 0 22 0;
 #X connect 20 0 4 0;
-#X connect 23 1 24 1;
-#X connect 24 0 17 1;
+#X connect 22 0 23 0;
+#X connect 22 1 23 1;
+#X connect 23 0 17 1;
+#X connect 26 0 5 0;
+#X connect 27 0 5 0;
