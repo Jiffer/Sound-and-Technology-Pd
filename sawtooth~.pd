@@ -1,0 +1,16 @@
+#N canvas 492 205 560 608 12;
+#X floatatom 268 181 5 0 0 0 - - -;
+#X text 200 182 frequency;
+#X obj 268 226 phasor~;
+#X obj 268 249 *~ 2;
+#X obj 268 272 -~ 1;
+#X text 51 275 This will make it go -1 to 1;
+#X text 36 230 phasor only goes from 0 to 1;
+#X text 320 126;
+#X obj 267 154 inlet;
+#X obj 270 352 outlet~;
+#X connect 0 0 2 0;
+#X connect 2 0 3 0;
+#X connect 3 0 4 0;
+#X connect 4 0 9 0;
+#X connect 8 0 0 0;

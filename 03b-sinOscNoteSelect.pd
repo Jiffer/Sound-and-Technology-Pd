@@ -4,7 +4,7 @@
 #X obj 100 628 *~;
 #X text 30 421 frequency;
 #X obj 101 250 hsl 128 15 36 84 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 3175 1;
+-1 -1 0 1;
 #X obj 97 393 mtof;
 #X floatatom 143 106 5 0 0 0 - - -;
 #X msg 235 183 55;
@@ -18,7 +18,7 @@ the scale;
 #X msg 149 183 52;
 #X msg 189 183 53;
 #X obj 145 41 hsl 100 25 0 8 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 700 1;
+-1 -1 0 1;
 #X obj 142 71 i;
 #X obj 204 328 change;
 #X obj 144 129 sel 0 1 2 3 4 5 6 7;
@@ -76,6 +76,7 @@ the scale;
 #X obj 204 386 bng 25 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 239 389 trigger;
+#X text 179 70 <- only pass integer portion;
 #X connect 1 0 11 0;
 #X connect 2 0 0 0;
 #X connect 2 0 0 1;

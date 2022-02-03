@@ -1,0 +1,49 @@
+#N canvas 1476 25 1404 742 12;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array stepCollection 20 float 3;
+#A 0 0 0 0 1 1 1 2 2 3 4 4 5 7 7 7 9 10 10 11 0;
+#X coords 0 12 20 0 200 140 1 0 0;
+#X restore 64 90 graph;
+#X msg 65 243 \; stepCollection 0 0 0 0 1 1 1 2 2 3 4 4 5 7 7 7 9 10
+10 11;
+#X floatatom 572 142 5 0 0 0 - - -;
+#X floatatom 572 190 5 0 0 0 - - -;
+#X obj 572 75 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 572 216 + 60;
+#X obj 573 257 mtof;
+#X obj 573 280 osc~;
+#X obj 640 332 line~;
+#X msg 640 280 1 5;
+#X msg 681 304 0 50;
+#X obj 682 281 delay 25;
+#X obj 622 355 *~;
+#X obj 622 449 dac~;
+#X obj 671 252 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 570 33 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 570 53 metro 150;
+#X obj 572 165 tabread stepCollection;
+#X obj 572 115 random 20;
+#X text 63 1 The steps relative to the "root" that can be selected
+By repeating some they are more likely to occur;
+#X connect 2 0 17 0;
+#X connect 3 0 5 0;
+#X connect 4 0 18 0;
+#X connect 5 0 6 0;
+#X connect 5 0 14 0;
+#X connect 6 0 7 0;
+#X connect 7 0 12 0;
+#X connect 8 0 12 1;
+#X connect 9 0 8 0;
+#X connect 10 0 8 0;
+#X connect 11 0 10 0;
+#X connect 12 0 13 0;
+#X connect 12 0 13 1;
+#X connect 14 0 9 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 16 0 4 0;
+#X connect 17 0 3 0;
+#X connect 18 0 2 0;
